@@ -1,18 +1,14 @@
-//
-//  WeatherManager.swift
-//  Clima
-//
-//  Created by Admin on 16/4/20.
-//  Copyright © 2020 App Brewery. All rights reserved.
-//
-
 import Foundation
+import CoreLocation
+
 protocol WeatherManagerDelegate {
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel)
     func didFailWithError(error: Error)
 }
+
 struct WeatherManager {
-    let weatherURL="https://api.openweathermap.org/data/2.5/weather?appid=e72ca729af228beabd5d20e3b7749713&units=metric"
+    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=e72ca729af228beabd5d20e3b7749713&units=metric"
+    
     var delegate: WeatherManagerDelegate?
     
     func fetchWeather(cityName: String) {
